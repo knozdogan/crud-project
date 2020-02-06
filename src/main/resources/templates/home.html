@@ -46,7 +46,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:if="${not #lists.isEmpty(airlines)}">
+                <tr th:if="${airlines.empty}">
                     <td colspan="2"><b><i>No Data Available</i></b></td>
                 </tr>
                 <tr th:each="airline : ${airlines}">
