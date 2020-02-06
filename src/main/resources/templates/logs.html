@@ -1,0 +1,39 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Hitit Demo Project</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h1> Airline Database Logs </h1>
+            <a th:href="@{/delete_all_logs}">Delete All Logs</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th> Action</th>
+                    <th> Date</th>
+                    <th> Log</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:if="${not #lists.isEmpty(logs)}">
+                    <td colspan="2"> No Logs Available</td>
+                </tr>
+                <tr th:each="log : ${logs}">
+                    <td><span th:text="${log.action}"></span></td>
+                    <td><span th:text="${log.date}"></span></td>
+                    <td><span th:text="${log.logs_db}"></span></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

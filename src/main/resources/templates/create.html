@@ -1,0 +1,36 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Hitit Demo Project</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h1> Create New Data </h1>
+            <!-- #TODO: Buraya Reset, Save All, New butonları gelecek -->
+        </div>
+    </div>
+
+    <form action="#" class="form-inline" method="post" th:action="@{/save}" th:object="${airline}">
+        <label class="sr-only" for="inlineFormInput1">airline_id</label>
+        <input class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput1" placeholder="Airline ID"
+               th:field="*{airline_id}" type="number">
+        <label class="sr-only" for="inlineFormInput2">name</label>
+        <input class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput2" placeholder="Name" th:field="*{name}"
+               type="text">
+        <label class="sr-only" for="inlineFormInput3">alias</label>
+        <input class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput3" placeholder="Alias" th:field="*{alias}"
+               type="text">
+        <label class="sr-only" for="inlineFormInput4">country</label>
+        <input class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput4" placeholder="Country"
+               th:field="*{country}" type="text">
+        <label class="sr-only" for="inlineFormInput5">status</label>
+        <input class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput5" placeholder="Status" th:field="*{status}"
+               type="text">
+
+        <button class="btn btn-primary" type="submit" value="Submit">Save</button>
+    </form>
+</div>
+</body>
+</html>

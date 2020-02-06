@@ -1,0 +1,69 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Hitit Demo Project</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h1> Airline Database </h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <p>Source: https://openflights.org/data.html</p>
+            <p>
+                <b>Airline ID:</b> Unique OpenFlights identifier for this airline. <br>
+                <b>Name:</b> Name of the airline. <br>
+                <b>Alias:</b> Alias of the airline. For example, All Nippon Airways is commonly known as "ANA". <br>
+                <b>Country:</b> Country or territory where airport is located. <br>
+                <b>Status:</b> "Y" if the airline is or has until recently been operational, "N" if it is defunct. <br>
+            </p>
+        </div>
+        <div align="right" class="col-md-6">
+            <a th:href="@{/create}">CREATE</a>
+        </div>
+        <div align="right" class="col-md-6">
+            <a th:href="@{/delete_all}">DELETE ALL</a><br>
+        </div>
+        <div align="right" class="col-md-6">
+            <a th:href="@{/logs}">LOGS</a><br>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th> Airline ID</th>
+                    <th> Name</th>
+                    <th> Alias</th>
+                    <th> Country</th>
+                    <th> Status</th>
+                    <th> Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:if="${not #lists.isEmpty(airlines)}">
+                    <td colspan="2"><b><i>No Data Available</i></b></td>
+                </tr>
+                <tr th:each="airline : ${airlines}">
+                    <td><span th:text="${airline.airline_id}"></span></td>
+                    <td><span th:text="${airline.name}"></span></td>
+                    <td><span th:text="${airline.alias}"></span></td>
+                    <td><span th:text="${airline.country}"></span></td>
+                    <td><span th:text="${airline.status}"></span></td>
+                    <td>
+                        <a th:href="@{/delete(airline_id=${airline.airline_id})}">Delete</a>
+                        <a th:href="@{/create}">Update</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
