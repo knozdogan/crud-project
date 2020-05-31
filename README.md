@@ -1,2 +1,2 @@
 # crud-project
-CRUD Project for Spring Boot
+CRUD Project with Spring Boot
